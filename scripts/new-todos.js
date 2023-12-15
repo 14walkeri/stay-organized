@@ -34,5 +34,36 @@ function loadCategoryDrop() {
     });
 }
 
+// function to add user to api
+function createNewTodo() {
+  const userSelectValue = userSelect.value;
+
+  const categorySelectValue = categorySelect.value;
+  const prioritySelectValue = prioritySelect.value;
+  const taskBoxValue = taskBox.value;
+  const deadLineBoxValue = deadLineBox.value;
+  const newTodo = {
+    userid: `${userSelectValue}`,
+    category: `${categorySelectValue}`,
+    description: `${taskBoxValue}`,
+    deadline: `${deadLineBoxValue}`,
+    priority: `${prioritySelectValue}`,
+  };
+
+  fetch("http://localhost:8083/api/todos", {
+    method: "Post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newTodo),
+  })
+    .then((response) => response.json())
+    .then((todo) => {
+      return todo;
+    });
+}
+
+//wiring it all for the boys
 loadUserDrop();
 loadCategoryDrop();
+addButton.onclick = createNewTodo;
