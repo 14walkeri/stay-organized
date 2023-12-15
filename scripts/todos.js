@@ -15,7 +15,7 @@ function loadTodoDrop() {
       }
     });
 }
-
+// function that fetches via user id to return todo sepcified to user
 function displayTodos() {
   fetch(`http://localhost:8083/api/todos/byuser/${userSelect.value}`)
     .then((response) => response.json())
@@ -53,6 +53,15 @@ function buildACard(todo) {
 
   todoCards.appendChild(currentCard);
 }
+
+// function to clear cards
+userSelect.addEventListener("change", function () {
+    displayTodos();
+    while (todoCards.firstChild) {
+      todoCards.removeChild(todoCards.firstChild);
+    }
+  });
 // wiring it up for the boys
 window.onload = loadTodoDrop;
-userSelect.onchange = displayTodos;
+
+

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>newtodo</title>
-    <link rel="stylesheet" href="css/stles.css">
+    <link rel="stylesheet" href="css/stles.css" />
   </head>
   <body>
     <header>
@@ -12,10 +12,35 @@
         <h1>NEW TODO</h1>
         <a href="index.html">Home</a>
         <a href="todos.html">Todos</a>
-    
       </nav>
     </header>
-    <main></main>
+    <main>
+      <label for="user-select">User select</label>
+      <select id="user-select">
+        <option>Select User</option>
+      </select>
+      <br />
+      <label for="category-select">Category select</label>
+      <select id="category-select">
+        <option>Select Category</option>
+      </select>
+      <br />
+      <label for="priority-select">Priority select</label>
+      <select id="priority-select">
+        <option>Select</option>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+      <br />
+      <label for="task-label">Task:</label>
+      <input type="text" id="task-box" name="Task" />
+      <br />
+      <label for="deadline-label">Deadline:</label>
+      <input type="text" value="yyyy-mm-dd" id="deadline-box" name="Task" />
+      <br />
+      <button type="button" id="add-button">Add</button>
+    </main>
     <footer></footer>
     <script src="scripts/new-todos.js"></script>
   </body>
