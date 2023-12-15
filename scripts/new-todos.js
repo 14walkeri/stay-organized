@@ -1,7 +1,7 @@
 // grab all the html elements
 const userSelect = document.querySelector("#user-select");
 const categorySelect = document.querySelector("#category-select");
-const prioritySelect = document.querySelector("#priority-selector");
+const prioritySelect = document.querySelector("#priority-select");
 const taskBox = document.querySelector("#task-box");
 const deadLineBox = document.querySelector("#deadline-box");
 const addButton = document.querySelector("#add-button");
@@ -28,12 +28,18 @@ function loadCategoryDrop() {
       for (const category of categories) {
         let userOption = document.createElement("option");
         userOption.innerText = category.name;
-        userOption.value = category.id;
+        userOption.value = category.name;
         categorySelect.appendChild(userOption);
       }
     });
 }
 
+// function for priority
+// function getPriorityDropValue() {
+//   output = prioritySelect.value;
+//   document.querySelector(".output").textContent = output;
+// }
+// console.log(getPriorityDropValue());
 // function to add user to api
 function createNewTodo() {
   const userSelectValue = userSelect.value;
@@ -59,7 +65,7 @@ function createNewTodo() {
   })
     .then((response) => response.json())
     .then((todo) => {
-      return todo;
+      window.location.href = "new_todos.html";
     });
 }
 
